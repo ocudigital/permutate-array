@@ -4,6 +4,9 @@ Permutate a seed to get a bunch of randomly similar permutations
 ## Example
 
 ```ts
+
+import { generateSeed, permutateArray } from 'permutate-array';
+
 // Some corpus of allowed values
 let corpus = ['a', 'b', 'c', 'd', 'e'];
 
