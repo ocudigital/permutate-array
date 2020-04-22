@@ -21,7 +21,7 @@ export function permutateArray<T>(seed: Array<T>, corpus: Array<T>, num_permutat
     while (result.length < num_permutations) {
         iterations++;
 
-        if (max_iterations && iterations < max_iterations) {
+        if (max_iterations && iterations > max_iterations) {
             throw "permutate-array: max_iterations reached";
         }
 
@@ -51,7 +51,7 @@ export function permutateArray<T>(seed: Array<T>, corpus: Array<T>, num_permutat
 // Not exact, but good enough
 // See https://stackoverflow.com/questions/51502511/calculate-the-possible-permutations-given-a-length-and-possible-characters
 function calculateMaxPermutations(len: number, corpus_len: number): number {
-    return len ^ corpus_len;
+    return Math.pow(len, corpus_len);
 }
 
 // Check if needle is in haystack

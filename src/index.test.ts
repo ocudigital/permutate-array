@@ -26,8 +26,15 @@ describe('permutateArray', () => {
 
         let seed = generateSeed(corpus, 3);
 
-        var result;
-        result = permutateArray(seed, corpus, 3);
+        var result = permutateArray(seed, corpus, 3);
         expect(result.length).to.equal(3);
     });
-}); 
+
+    it('passes recogintion test', () => {
+        let seed = [1, 1];
+        let corpus = [2, 1, 4];
+
+        let result = permutateArray(seed, corpus, 4);
+        expect(result.length).to.equal(4);
+    });
+});
