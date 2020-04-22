@@ -1,11 +1,11 @@
 {
   "name": "permutate-array",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Randomly permutate an array from an optinal seed, generating set of arrays that similar to the seed array",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "install": "npm install -g typescript ts-node",
+    "install-global-dependencies": "npm install -g typescript ts-node",
     "test": "mocha -r ts-node/register src/**/*.test.ts"
   },
   "repository": {
