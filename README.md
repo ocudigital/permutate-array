@@ -21,5 +21,5 @@ console.log(seed)
 // [ 'a', 'd', 'e' ]
 
 console.log(result)
-// [ [ 'a', 'd', 'e' ], [ 'c', 'd', 'e' ], [ 'a', 'd', 'c' ] ]
+// [ [ 'a', 'd', 'a' ], [ 'c', 'd', 'e' ], [ 'a', 'd', 'c' ] ]
 ```
