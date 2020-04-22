@@ -1,3 +1,5 @@
+[![npm](https://img.shields.io/npm/v/permutate-array)](https://www.npmjs.com/package/permutate-array)
+
 # permutate-array
 Permutate a seed to get a bunch of randomly similar permutations
 
