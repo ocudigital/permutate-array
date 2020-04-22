@@ -1,4 +1,4 @@
-import { generateSeed, permutateArray, in_array } from './index';
+import { generateSeed, permutateArray, randomSelections, in_array } from './index';
 import { expect } from 'chai';
 import 'mocha';
 
@@ -46,3 +46,13 @@ describe('permutateArray', () => {
         expect(result.length).to.equal(4);
     });
 });
+
+
+describe('randomSelections', () => {
+    it('works', () => {
+        let corpus = ['a', 'b', 'c', 'd', 'e'];
+        var result = randomSelections(corpus, 5, 3);
+        expect(result.length).to.equal(3);
+    });
+});
+

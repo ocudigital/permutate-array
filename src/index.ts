@@ -47,6 +47,32 @@ export function permutateArray<T>(seed: Array<T>, corpus: Array<T>, num_permutat
     return result;
 }
 
+export function randomSelections<T>(corpus: Array<T>, len: number, num_selections: number, max_iterations: number = 1000): Array<Array<T>> {
+    if (num_selections > calculateMaxPermutations(len, corpus.length)) {
+        throw "permutate-array: cannot permutate array - corpus too short";
+    }
+
+    let result = [];
+    let iterations = 0;
+    while (result.length < num_selections) {
+        iterations++;
+
+        if (max_iterations && iterations > max_iterations) {
+            throw "permutate-array: max_iterations reached";
+        }
+
+        var new_item = generateSeed(corpus, len);
+        if (in_array(new_item, result)) {
+            continue;
+        }
+        else {
+            result.push(new_item);
+        }
+    }
+
+    return result;
+}
+
 
 // Not exact, but good enough
 // See https://stackoverflow.com/questions/51502511/calculate-the-possible-permutations-given-a-length-and-possible-characters
