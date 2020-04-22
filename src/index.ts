@@ -11,13 +11,20 @@ export function generateSeed<T>(corpus: Array<T>, len: number): Array<T> {
     return result;
 }
 
-export function permutateArray<T>(seed: Array<T>, corpus: Array<T>, num_permutations: number): Array<Array<T>> {
+export function permutateArray<T>(seed: Array<T>, corpus: Array<T>, num_permutations: number, max_iterations: number = 1000): Array<Array<T>> {
     if (calculateMaxPermutations(seed.length, corpus.length) < num_permutations) {
         throw "permutate-array: cannot permutate array - corpus too short";
     }
 
     let result = [];
+    let iterations = 0;
     while (result.length < num_permutations) {
+        iterations++;
+
+        if (max_iterations && iterations < max_iterations) {
+            throw "permutate-array: max_iterations reached";
+        }
+
         var new_item;
         if (result.length == 0) {
             new_item = seed.slice();
