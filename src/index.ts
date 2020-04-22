@@ -12,7 +12,7 @@ export function generateSeed<T>(corpus: Array<T>, len: number): Array<T> {
 }
 
 export function permutateArray<T>(seed: Array<T>, corpus: Array<T>, num_permutations: number, max_iterations: number = 1000): Array<Array<T>> {
-    if (calculateMaxPermutations(seed.length, corpus.length) < num_permutations) {
+    if (num_permutations > calculateMaxPermutations(seed.length, corpus.length)) {
         throw "permutate-array: cannot permutate array - corpus too short";
     }
 
@@ -51,7 +51,7 @@ export function permutateArray<T>(seed: Array<T>, corpus: Array<T>, num_permutat
 // Not exact, but good enough
 // See https://stackoverflow.com/questions/51502511/calculate-the-possible-permutations-given-a-length-and-possible-characters
 function calculateMaxPermutations(len: number, corpus_len: number): number {
-    return Math.pow(len, corpus_len);
+    return Math.pow(corpus_len, len);
 }
 
 // Check if needle is in haystack

@@ -37,4 +37,12 @@ describe('permutateArray', () => {
         let result = permutateArray(seed, corpus, 4);
         expect(result.length).to.equal(4);
     });
+
+    it('passes visual_memory test', () => {
+        let seed = [9];
+        let corpus = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        let result = permutateArray(seed, corpus, 4);
+        expect(result.length).to.equal(4);
+    });
 });
