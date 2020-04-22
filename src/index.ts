@@ -16,14 +16,20 @@ export function permutateArray<T>(seed: Array<T>, corpus: Array<T>, num_permutat
         throw "permutate-array: cannot permutate array - corpus too short";
     }
 
-    let result = [seed];
+    let result = [];
     while (result.length < num_permutations) {
-        let new_item = chance.pickone(result).slice();
+        var new_item;
+        if (result.length == 0) {
+            new_item = seed.slice();
+        }
+        else {
+            new_item = chance.pickone(result).slice();
+        }
 
         let swap = chance.pickone(corpus);
         new_item[chance.integer({ min: 0, max: new_item.length - 1 })] = swap;
 
-        if (in_array(new_item, result)) {
+        if (is_same(seed, new_item) || in_array(new_item, result)) {
             continue;
         }
         else {
@@ -49,4 +55,10 @@ export function in_array<T>(needle: T, haystack: Array<T>): boolean {
         }
     }
     return false;
+}
+
+function is_same<T>(array1: Array<T>, array2: Array<T>): boolean {
+    return (array1.length == array2.length) && array1.every(function (element, index) {
+        return element === array2[index];
+    });
 }
